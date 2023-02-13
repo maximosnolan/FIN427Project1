@@ -1,3 +1,4 @@
 # Ignore all excell and csv files
 *.csv
 *.xlsx
+.ipynb_checkpoints
