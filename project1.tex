@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,hyperref,verbatim,bookmark,graphicx,titlesec}
+\hypersetup{hidelinks}
+
+\title{\textbf{FIN 427 Project 1 \\ Group 15 \\ Healthcare Technology}}
+\author{}
+
+\begin{document}
+\maketitle 
+\newcommand{\sectionbreak}{\clearpage}
+\tableofcontents
+\section{Introduction}
+Our data originates from the Wharton Library, which contains the following characteristics; for all stocks traded in the S\&P 400 Midcap, we were able to fetch the daily returns for those stocks spanning the time period of December 1993 to December 2022. Utilizing the daily returns, we are able to calculate the relative strength index of a stock, or momentum, as it is sometimes referred to as. In order to calculate the relative strength index, one must first determine the average return rate on an up day and the average return rate on a down day.  
+\\~\\ An RSI of over 70 indicates an overbought, where an RSI of below 30 indicates an oversold. Intuitively, an oversold stock is undervalued, which yields a positive return in the subsequent period; where an overbought stock is overvalued by investors, and is more likely to be sold in the next period, which drives down prices. The RSI of the previous month is indicative of the performance in the subsequent month (more discussion below). 
+\\~\\ There is a discussion to be had regarding how large this window size should be, referring to the number of days we consider when determining this average “up” and “down” value. Most analysts use a value within the range of 9-15 trading days. Our group decided to work with a window size of 15 as we feel we have sufficient data to support this window size as well as it will be significantly more resistant to outliers. This is significant as one day won’t disproportionally affect the RSI when it joins or leaves the window. After determining these average “up” and “down” return values, we then determined the relative strength index, which is a ratio of the average up value and average down value. 
+\\~\\ One important decision we made was how do we calculate the RSI for a stock given there aren’t 15 days of data prior to it. For example, if a stock has its first appearance in the daily returns on March 1 2004, what should the RSI be? We decided to fill all incalculable values as 50 because this is the RSI which is produced when the stocks average up day returns and average down day returns are equal. This will result in the least significant change to RSI. 
+\\~\\ The calculation we carried out thus uses an “relative-strength ratio”, which is a rolling average of gains and losses over the given window and then aggregates the data as a score (as seen below). 
+\\~\\ We are currently working through an accurate OLS and Lasso regression for the data that is shifted forward a month so that the data in the month being measured is not influencing the calculation and thus the p-value/coefficient for RSI in returns. 
+
+\begin{equation}
+    RS = \frac{Avg. Gain}{Avg. Loss}  \qquad
+    RSI = 100 - \frac{100}{1+RS}
+\end{equation}
+\section{Method and Scope}
+\section{Data}
+\section{Results}
+\end{document}
